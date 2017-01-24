@@ -11,25 +11,23 @@ import {
 } from 'react-native';
 
 
-var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
 export default class weekdays extends Component {
 
   days(){
-    return DAYS.map(function(day){
-      return <DayItems day={day}/>
-    });
+    var daysItems=[];
+    for (var i = 0; i < 7; i++) {
+      var day=Moment().add(i,'days').format('dddd');
+      daysItems.push(
+        <DayItems day={day} daysUntil={i} />
+      )
+    }
+    return daysItems;
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Days of the week:
-        </Text>
-        <Text>
-          {Moment().format('ddd')}
-        </Text>
         {this.days()}
       </View>
     );
