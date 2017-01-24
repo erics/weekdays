@@ -1,11 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
+/* @flow */
 import React, { Component } from 'react';
 import DayItems from './src/day-item';
+import Moment from 'moment';
 
 import {
   AppRegistry,
@@ -29,7 +25,10 @@ export default class weekdays extends Component {
     return (
       <View style={styles.container}>
         <Text>
-      Days of the week:
+          Days of the week:
+        </Text>
+        <Text>
+          {Moment().format('ddd')}
         </Text>
         {this.days()}
       </View>
