@@ -19,7 +19,7 @@ export default class weekdays extends Component {
     for (var i = 0; i < 7; i++) {
       var day=Moment().add(i,'days').format('dddd');
       daysItems.push(
-        <DayItems day={day} daysUntil={i} />
+        <DayItems day={day} daysUntil={i} key={i}/>
       )
     }
     return daysItems;
@@ -52,5 +52,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
 
 AppRegistry.registerComponent('weekdays', () => weekdays);
